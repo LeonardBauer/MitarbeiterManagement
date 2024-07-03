@@ -15,7 +15,7 @@ public class Main {
         String choice;
 
         // Load employees from file
-        manager.loadEmployees("employees.txt");
+        manager.loadEmployees("employees.csv");
 
         while (true) {
             System.out.println("Employee Management System");
@@ -81,7 +81,7 @@ public class Main {
                     viewEmployeeWithLongestTenure(manager);
                     break;
                 case "15":
-                    manager.saveEmployees("employees_updated.txt");
+                    manager.saveEmployees("employees.csv");
                     System.out.println("Exiting...");
                     scanner.close();
                     System.exit(0);
@@ -211,6 +211,8 @@ public class Main {
             System.out.println("Employee not found.");
         }
     }
+
+
 
     private static void viewEmployeeWithLowestSalary(EmployeeManager manager) {
         Employee employee = manager.employees.stream().min(Comparator.comparing(Employee::calculateMonthlySalary)).orElse(null);

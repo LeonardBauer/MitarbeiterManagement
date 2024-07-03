@@ -8,7 +8,7 @@ import java.util.*;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 
-public class EmployeeManager {
+public class EmployeeManager extends Main {
     List<Employee> employees;
     private List<Employee> formerEmployees;
     private final int MAX_EMPLOYEES = 20;

@@ -7,7 +7,7 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public abstract class Employee {
+public abstract class Employee extends EmployeeManager {
     protected String id;
     protected String firstName;
     protected String lastName;
@@ -32,7 +32,7 @@ public abstract class Employee {
         String genderCode = (gender == 'M') ? "M" : "F";
         String birthYear = String.valueOf(birthDate.getYear()).substring(2);
         String initial = firstName.charAt(0) + "" + lastName.charAt(0);
-        String uniqueNumber = String.format("%04d", new Random().nextInt(10000)); // Random 4 digit number for simplicity
+        String uniqueNumber = String.format("%04d", Math.abs((new Random(firstName.charAt(0)).nextInt()*10 +( new Random(lastName.charAt(0)).nextInt()))%9999)); // Random 4 digit number for simplicity
         return genderCode + birthYear + initial + uniqueNumber + employeeType.charAt(0);
     }
 
